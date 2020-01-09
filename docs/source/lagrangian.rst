@@ -40,41 +40,39 @@ The pipeline of operations to be performed contains the name of the filter - "la
 We can specify the step size used for advection (in this example we use "0.02"). If cust_res is set to 0, then the number of particles used is the same as the number of grid points, i.e., a 1:1 configuration. In our example, we set cust_res to 1, indicating we do not want to use the default seed resolution. 
 We set x_res, y_res and z_res to 2, i.e., a particle is placed for every other grid point in each axis direction. Thus, for this custom seed resolution we are using 1:8 particles to grid points. 
 
-::
+.. code-block:: JSON
 
-[
-  {
-    "action": "add_pipelines",
-    "pipelines":
-    {   
-      "pl1":
+  [
+    {
+      "action": "add_pipelines",
+      "pipelines":
       {   
-        "f1":
+        "pl1":
         {   
-          "type": "lagrangian",
-          "params":
+          "f1":
           {   
-            "field": "velocity",
-            "step_size": "0.02",
-            "write_frequency": "25",
-            "cust_res": "1",
-            "x_res": "2",
-            "y_res": "2",
-            "z_res": "2" 
+            "type": "lagrangian",
+            "params":
+            {   
+              "field": "velocity",
+              "step_size": "0.02",
+              "write_frequency": "25",
+              "cust_res": "1",
+              "x_res": "2",
+              "y_res": "2",
+              "z_res": "2" 
+            }   
           }   
         }   
       }   
-    }   
-  },  
-
-  {
-    "action": "execute"
-  },  
-
-  {
-    "action": "reset"
-  }
-]
+    },  
+    {
+      "action": "execute"
+    },  
+    {
+      "action": "reset"
+    }
+  ]
 
 Additionally, in the event the user does not want to use an ascent_actions.json file, the code can be directly instrumented. The C++ code snippet below demonstrates the same Lagrangian analysis filter configuration as the instance above.
 
