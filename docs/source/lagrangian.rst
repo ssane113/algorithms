@@ -129,7 +129,7 @@ To improve overall performance of the Lagrangian analysis the filter particle ad
 
 Developers
 ^^^^^^^^^^
-Sudhanshu Sane
+The Lagrangian analysis filter and algorithm were designed and developed by Sudhanshu Sane and Hank Childs at the University of Oregon. 
 
 .. toctree::
    :maxdepth: 1
